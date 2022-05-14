@@ -56,10 +56,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.i("TAG", "onClick: "+etUsername.getText().toString().trim()+"    " +etPassword.getText().toString().trim());
                 if( dao.check_password(etUsername.getText().toString().trim(),etPassword.getText().toString().trim())){
                     startActivity(new Intent(this, MainActivity.class));
+                    Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
                 }
                 else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setMessage("系统异常，请稍后再试。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    builder.setIcon(R.drawable.ic_alert).setTitle("提示").setMessage("用户名或密码错误，请重试。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
