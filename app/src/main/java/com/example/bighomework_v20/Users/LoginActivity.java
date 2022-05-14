@@ -1,5 +1,6 @@
 package com.example.bighomework_v20.Users;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bighomework_v20.Dao.MyDao;
@@ -54,13 +56,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.i("TAG", "onClick: "+etUsername.getText().toString().trim()+"    " +etPassword.getText().toString().trim());
                 if( dao.check_password(etUsername.getText().toString().trim(),etPassword.getText().toString().trim())){
                     startActivity(new Intent(this, MainActivity.class));
-
                 }
                 else {
-                    Toast.makeText(this,"wrong",Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage("系统异常，请稍后再试。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 break;
-
         }
     }
 }
