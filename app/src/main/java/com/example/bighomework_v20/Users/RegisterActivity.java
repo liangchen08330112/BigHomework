@@ -53,7 +53,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         //注册成功，返回登录页面
                         startActivity(new Intent(this,LoginActivity.class));
                     }
-
                 }
                 break;
         }
@@ -115,6 +114,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
         return true;
     }
+    //判断两次输入的密码是否相同
     public boolean isSamePassword(){
         password=etPasswordSet.getText().toString().trim();
         password_confirm=etPasswordComfirm.getText().toString().trim();
