@@ -3,11 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable-v24/ic_zhengque.xml" value="0.1345" />
         <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/btn_btn.xml" value="0.12" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/card_style.xml" value="0.1145" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/edittext.xml" value="0.1365" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/et_style.xml" value="0.1145" />
         <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_alert.xml" value="0.12" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_baseline_account_box_24.xml" value="0.114" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_baseline_emoji_emotions_24.xml" value="0.1145" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.12" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_myfriend.xml" value="0.12" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_shoucang.xml" value="0.12" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/ic_tongji.xml" value="0.132" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/item_background.xml" value="0.114" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/second_style.xml" value="0.114" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/drawable/third_style.xml" value="0.12" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/activity_grade_import.xml" value="0.264" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/activity_home_fragment.xml" value="0.264" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/activity_list.xml" value="0.24947916666666667" />
         <entry key="..\:/BigHomework_V20/app/src/main/res/layout/activity_list_view_page2.xml" value="0.24947916666666667" />
-        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/activity_login.xml" value="0.109375" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/BigHomework_V20/app/src/main/res/layout/activity_register.xml" value="0.109375" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/chat_item.xml" value="0.1" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/first_fragment.xml" value="0.24947916666666667" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/first_item.xml" value="0.1" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/fragment_list.xml" value="0.1" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/fragment_my.xml" value="0.12082066869300911" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/fragment_page1.xml" value="0.24947916666666667" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/fragment_page2.xml" value="0.24947916666666667" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/fragment_page3.xml" value="0.24947916666666667" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/layout/third_fragment.xml" value="0.10520833333333333" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/BigHomework_V20/app/src/main/res/menu/menu.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

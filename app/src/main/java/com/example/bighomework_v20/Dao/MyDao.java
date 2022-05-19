@@ -21,7 +21,7 @@ public class MyDao {
     @SuppressLint("Range")
     public  boolean check_password(String user_name, String user_password){
         SQLiteDatabase db = helper.getReadableDatabase();
-        String name = null,password=null;
+        String name = "",password="";
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery("select * from "+ Constants.TABLE_NAME_USER,null);
         while(cursor.moveToNext()){
             name= cursor.getString(cursor.getColumnIndex("user_name"));
@@ -34,9 +34,5 @@ public class MyDao {
         }else {
             return false;
         }
-
-
-
-
     }
 }

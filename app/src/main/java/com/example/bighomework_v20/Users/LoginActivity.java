@@ -13,9 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.bighomework_v20.Dao.MyDao;
-import com.example.bighomework_v20.MainActivity;
 import com.example.bighomework_v20.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
