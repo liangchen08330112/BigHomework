@@ -91,4 +91,16 @@
             android:text="查看" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="成绩列表：" />
+
+    <TextView
+        android:id="@+id/textView_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
 </LinearLayout>

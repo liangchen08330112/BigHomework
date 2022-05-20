@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bighomework_v20">
+    package="com.example.bighomework_v20" >
 
     <application
         android:allowBackup="true"
@@ -8,17 +8,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BigHomework_V20">
-        <activity
-            android:name=".Users.MyActivity"
-            android:exported="false" />
+        android:theme="@style/Theme.BigHomework_V20" >
         <activity
             android:name=".Users.GradeImportActivity"
             android:exported="false" />
         <activity
+            android:name=".Users.MyActivity"
+            android:exported="false" />
+        <activity
             android:name=".Users.ListViewPage2"
             android:exported="true"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
