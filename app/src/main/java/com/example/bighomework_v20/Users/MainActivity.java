@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageButton imageButton_import,imageButton_list,imageButton_home,imageButton_grades,imageButton_my;
+    private ImageButton imageButton_import,imageButton_home,imageButton_grades,imageButton_my;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +30,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initView() {
         imageButton_import = findViewById(R.id.imageButton_import);
-        imageButton_list = findViewById(R.id.imageButton_list);
         imageButton_home = findViewById(R.id.imageButton_home);
         imageButton_grades = findViewById(R.id.imageButton_grades);
         imageButton_my = findViewById(R.id.imageButton_my);
 
         imageButton_import.setOnClickListener(this);
-        imageButton_list.setOnClickListener(this);
         imageButton_grades.setOnClickListener(this);
         imageButton_my.setOnClickListener(this);
     }
