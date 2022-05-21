@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.imageButton_grades:
                 startActivity(new Intent(MainActivity.this,GradeImportActivity.class));
                 break;
-            case R.id.fragment_my:
+            case R.id.imageButton_my:
                 startActivity(new Intent(MainActivity.this,MyActivity.class));
                 break;
             default:

@@ -11,14 +11,16 @@
         android:theme="@style/Theme.BigHomework_V20" >
         <activity
             android:name=".Users.GradeImportActivity"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name=".Users.MyActivity"
+            android:launchMode="singleTop"
             android:exported="false" />
         <activity
             android:name=".Users.ListViewPage2"
             android:exported="true"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,14 +29,16 @@
         </activity>
         <activity
             android:name=".Users.RegisterActivity"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name=".Users.LoginActivity"
+            android:launchMode="singleTask"
             android:exported="true" />
         <activity
             android:name=".Users.MainActivity"
             android:exported="true"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
