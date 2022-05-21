@@ -84,7 +84,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
             return;
         }
         switch (v.getId()){
-            case R.id.button_insert:
+            case R.id.button_insert:  //添加成绩
                 try {
                     db.execSQL("insert into users(name,grades) values(?,?)",new String[]{name,grades});
                     Toast.makeText(this,"成绩录入成功",Toast.LENGTH_SHORT).show();
@@ -92,11 +92,11 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                     Toast.makeText(this,"成绩录入失败",Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.button_delete:
+            case R.id.button_delete:  //删除成绩
                 int deleteLines  = db.delete("users","name=?",new String[]{name});
                 Toast.makeText(this,"删除"+deleteLines+"条记录",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.button_update:
+            case R.id.button_update:  //修改成绩
                 String grades1 = editText_grades.getText().toString().trim();
                 if(TextUtils.isEmpty(grades)){
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -116,7 +116,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                 long affectLines = db.update("users",values,"name=?",new String[]{name});
                 Toast.makeText(this,"修改"+affectLines+"行记录",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.button_search:
+            case R.id.button_search:  //根据姓名搜索成绩
                 String search = editText_search.getText().toString().trim();
                 if(TextUtils.isEmpty(search)){
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -147,7 +147,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 break;
-            case R.id.button_seeAll:
+            case R.id.button_seeAll:  //展示所有成绩
                 Cursor cursor_seeAll = db.rawQuery("select * from users",null);
                 /**
                  * 2022年5月21日21:57修改：
