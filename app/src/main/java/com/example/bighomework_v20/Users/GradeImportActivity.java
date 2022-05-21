@@ -22,7 +22,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
 
     private EditText editText_name,editText_grades,editText_search;
     private Button button_insert,button_delete,button_update,button_search,button_seeAll;
-    private TextView textView_show;
+    private LinearLayout linearLayout;
     SQLiteDatabase db;
 
     @Override
@@ -44,7 +44,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
         button_update = (Button) findViewById(R.id.button_update);
         button_search = (Button) findViewById(R.id.button_search);
         button_seeAll = (Button) findViewById(R.id.button_seeAll);
-        textView_show = (TextView) findViewById(R.id.textView_show);
+        linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
 
         button_insert.setOnClickListener(this);
         button_delete.setOnClickListener(this);
@@ -149,8 +149,15 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.button_seeAll:
                 Cursor cursor_seeAll = db.rawQuery("select * from users",null);
+                /**
+                 * 2022年5月21日21:57修改：
+                 * 不再在xml布局中单独添加TextView，而是定义LinearLayout并关联资源，在该布局中新建一个TextView对象，
+                 * 并根据数据库中的数据来改变TextView显示的内容。
+                 */
                 while (cursor_seeAll.moveToNext()){
-                    textView_show.setText("姓名："+cursor_seeAll.getString(0)+"，成绩："+cursor_seeAll.getString(1)+"。");
+                    TextView textView = new TextView(this);
+                    textView.setText("姓名："+cursor_seeAll.getString(0)+"，成绩："+cursor_seeAll.getString(1));
+                    linearLayout.addView(textView);
                 }
                 Toast.makeText(this,"检索完毕",Toast.LENGTH_SHORT).show();
                 break;
