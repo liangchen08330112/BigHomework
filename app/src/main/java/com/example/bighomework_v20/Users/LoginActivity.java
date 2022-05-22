@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Intent intent=new Intent(LoginActivity.this,ListViewPage2.class);
             startActivity(intent);
         }else {
-            num++;//
+            num++;
             editor.putInt("times",num);
             editor.commit();
         }
