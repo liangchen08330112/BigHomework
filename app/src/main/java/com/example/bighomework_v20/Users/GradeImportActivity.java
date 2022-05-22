@@ -151,7 +151,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                 Cursor cursor_seeAll = db.rawQuery("select * from users",null);
                 /**
                  * 2022年5月21日21:57修改：
-                 * 不再在xml布局中单独添加TextView，而是定义LinearLayout并关联资源，在该布局中新建一个TextView对象，
+                 * 不再在xml布局中单独添加TextView，而是为新建的LinearLayout设置id并关联资源，在该布局中新建一个TextView对象，
                  * 并根据数据库中的数据来改变TextView显示的内容。
                  */
                 while (cursor_seeAll.moveToNext()){
