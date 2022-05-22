@@ -156,7 +156,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                  */
                 while (cursor_seeAll.moveToNext()){
                     TextView textView = new TextView(this);
-                    textView.setText("姓名："+cursor_seeAll.getString(0)+"，成绩："+cursor_seeAll.getString(1));
+                    textView.setText("姓名："+cursor_seeAll.getString(0)+"，成绩："+cursor_seeAll.getString(1)+"。");
                     linearLayout.addView(textView);
                 }
                 Toast.makeText(this,"检索完毕",Toast.LENGTH_SHORT).show();
