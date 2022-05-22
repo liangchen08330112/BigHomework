@@ -69,7 +69,6 @@ public class Page3 extends Fragment {
                 Intent intent=new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent);
                 //滑动介绍页看完就可以结束掉了，因为如果不结束，从登录界面退出后会返回滑动页最后一页。
-                getActivity().finish();
             }
         });
         // Inflate the layout for this fragment

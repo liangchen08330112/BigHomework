@@ -2,6 +2,7 @@ package com.example.bighomework_v20.Users;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,7 +30,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        judge();//用于判断是否是第一次打开页面
         initView();
+    }
+    private void judge(){
+        SharedPreferences sp=getSharedPreferences("judge",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sp.edit();
+        int num =sp.getInt("times",0);
+        if (num==0){
+            num++;
+            editor.putInt("times",num);
+            editor.commit();
+            Intent intent=new Intent(LoginActivity.this,ListViewPage2.class);
+            startActivity(intent);
+        }else {
+            num++;
+            editor.putInt("times",num);
+            editor.commit();
+        }
     }
 
     private void initView() {
