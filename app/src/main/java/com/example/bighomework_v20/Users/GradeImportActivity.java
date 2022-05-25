@@ -31,7 +31,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_grade_import);
         initView();
 
-        db = SQLiteDatabase.openOrCreateDatabase(this.getFilesDir().toString()+"/grades.db",null);
+        db = SQLiteDatabase.openOrCreateDatabase(this.getFilesDir().toString()+"grades.db",null);
         db.execSQL("create table if not exists users(name varchar(10),grades varchar(10),primary key(name))");
     }
 
@@ -56,33 +56,8 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         String name = editText_name.getText().toString().trim();
-        if(TextUtils.isEmpty(name)){
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("提示").setIcon(R.drawable.ic_alert).setMessage("姓名为空").setCancelable(true)
-                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            return;
-        }
         String grades = editText_grades.getText().toString().trim();
-        if(TextUtils.isEmpty(grades)){
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("提示").setIcon(R.drawable.ic_alert).setMessage("成绩为空").setCancelable(true)
-                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            return;
-        }
+
         switch (v.getId()){
             case R.id.button_insert:  //添加成绩
                 try {
