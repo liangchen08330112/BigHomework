@@ -7,11 +7,34 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".Users.GradeImportActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/xuehao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="学号：" />
+
+        <EditText
+            android:id="@+id/et_xuehao"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:hint="请输入学号"
+            android:paddingLeft="15dp"
+            android:background="@drawable/edittext"
+            android:ems="50" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <TextView
@@ -128,7 +151,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
     </LinearLayout>
 
 </LinearLayout>

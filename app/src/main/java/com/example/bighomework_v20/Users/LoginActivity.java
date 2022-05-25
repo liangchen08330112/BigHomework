@@ -33,6 +33,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         judge();//用于判断是否是第一次打开页面
         initView();
     }
+    /*
+    * 仅仅是判断是判断是否是第一次打开
+    * */
     private void judge(){
         SharedPreferences sp=getSharedPreferences("judge",MODE_PRIVATE);
         SharedPreferences.Editor editor=sp.edit();
