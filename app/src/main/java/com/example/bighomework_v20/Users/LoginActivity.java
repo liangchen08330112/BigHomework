@@ -3,6 +3,7 @@ package com.example.bighomework_v20.Users;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.bighomework_v20.Dao.MyDao;
+import com.example.bighomework_v20.Dao.NewBase;
 import com.example.bighomework_v20.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -65,30 +67,58 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        String nm = etUsername.getText().toString().trim();
+        String pw = etPassword.getText().toString().trim();
+        switch (v.getId()) {
             case R.id.btn_registe:
                 //点击注册按钮，跳转进入注册页面
-                startActivity(new Intent(this,RegisterActivity.class));
+                startActivity(new Intent(this, RegisterActivity.class));
                 break;
-            case  R.id.btn_up:
-                MyDao dao = new MyDao(this);
-                Log.i("TAG", "onClick: "+etUsername.getText().toString().trim()+"    " +etPassword.getText().toString().trim());
-                if( dao.check_password(etUsername.getText().toString().trim(),etPassword.getText().toString().trim())){
-                    startActivity(new Intent(this, MainActivity.class));
-                    Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.drawable.ic_alert).setTitle("提示").setMessage("用户名或密码错误，请重试。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
+            case R.id.btn_up:
+                /*
+                 * 逻辑：首先判断是否为空，如实为空，则自动报错
+                 * 2.在此判断输入的用户是否在数据库里面，并且进行比较，如实正确，则进行登录
+                 * */
+                NewBase mybase = new NewBase(this);
+                if (nm.equals("") || pw.equals("")) {
+                    Toast.makeText(this, "用户名或密码不能为空！", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(this, MainActivity.class));
+//                    Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    String condition = "用户不存在";
+
+                    Cursor cursor = mybase.getDb().rawQuery("select name,password from users where name=?", new String[]{nm});
+                    while (cursor.moveToNext()) {
+                        condition = cursor.getString(1);
+                    }
+
+                    cursor.close();//关门游标
+                    if (condition.equals("用户不存在")) {
+                        Toast.makeText(this, "用户不存在", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else {
+                        if (condition.equals(pw)){
+                            startActivity(new Intent(this, MainActivity.class));
+                            Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(this, "密码错误", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    }
                 }
+
+
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//                    builder.setIcon(R.drawable.ic_alert).setTitle("提示").setMessage("用户名或密码错误，请重试。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.dismiss();
+//                        }
+//                    });
+//                    AlertDialog dialog = builder.create();
+//                    dialog.show();
                 break;
         }
+
+        }
     }
-}

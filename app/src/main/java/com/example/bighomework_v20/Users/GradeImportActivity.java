@@ -36,7 +36,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_grade_import);
         Bmob.initialize(this, "b5275c7bd39777e5666d5832ba50478e");
         initView();
-        db = SQLiteDatabase.openOrCreateDatabase(this.getFilesDir().toString()+"grades.db",null);
+        db = SQLiteDatabase.openOrCreateDatabase(this.getFilesDir().toString()+"/grades.db",null);
         db.execSQL("create table if not exists users(name varchar(10),grades varchar(10),number varchar(50),primary key(number))");
     }
 
