@@ -16,7 +16,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table if not exists user_info(user_name vachar,user_password)";
+        String sql = "create table if not exists user_info(user_name varchar(50),user_password varchar(50))";
         db.execSQL(sql);
 
     }
