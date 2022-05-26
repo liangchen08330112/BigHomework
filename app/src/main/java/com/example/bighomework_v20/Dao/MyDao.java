@@ -22,7 +22,8 @@ public class MyDao {
     public  boolean check_password(String user_name, String user_password){
         SQLiteDatabase db = helper.getReadableDatabase();
         String name = "",password="";
-        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("select * from "+ Constants.TABLE_NAME_USER,null);
+        @SuppressLint("Recycle")
+        Cursor cursor = db.rawQuery("select * from "+ Constants.TABLE_NAME_USER,null);
         while(cursor.moveToNext()){
             name= cursor.getString(cursor.getColumnIndex("user_name"));
             password = cursor.getString(cursor.getColumnIndex("user_password"));
