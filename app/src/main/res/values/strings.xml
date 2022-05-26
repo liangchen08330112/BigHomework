@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BigHomework_V2.0</string>
+    <string name="app_name">成绩查询服务端</string>
     <string name="item_one">微信</string>
     <string name="item_two">通讯录</string>
     <string name="item_three">我的</string>

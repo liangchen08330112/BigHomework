@@ -21,6 +21,7 @@ import com.example.bighomework_v20.R;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class GradeImportActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,7 +37,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
         Bmob.initialize(this, "b5275c7bd39777e5666d5832ba50478e");
         initView();
         db = SQLiteDatabase.openOrCreateDatabase(this.getFilesDir().toString()+"grades.db",null);
-        db.execSQL("create table if not exists users(name varchar(10),grades varchar(10),number varchar(50),primary key(name))");
+        db.execSQL("create table if not exists users(name varchar(10),grades varchar(10),number varchar(50),primary key(number))");
     }
 
     private void initView() {
@@ -61,7 +62,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
     * 封装一个方法，用于判断用户名或密码或者学号是否为空
     * */
     private static boolean  isNull(String name,String grades,String xuehao){
-        if (name.equals("")||grades.equals("null")||xuehao.equals("")){
+        if (name.equals("")||grades.equals("")||xuehao.equals("")){
             return false;
         }else {
             return true;
@@ -94,7 +95,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                 if(e==null){
                     Toast.makeText(getApplicationContext(), "添加数据成功，返回objectId为："+objectId, Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "创建数据失败：" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "创建数据失败：" + "请确保学号正确！", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -119,7 +120,7 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                         db.execSQL("insert into users(name,grades,number) values(?,?,?)", new String[]{name, grades,num});
                         Toast.makeText(this, "成绩录入成功", Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
-                        Toast.makeText(this, "成绩录入失败", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "成绩录入失败,请确保学号正确！", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     tip("请确保成绩，学号，姓名不为空！");
@@ -127,6 +128,17 @@ public class GradeImportActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.button_delete:  //删除成绩
                 int deleteLines  = db.delete("users","name=? and number=?",new String[]{name,num});
+                StudentGrade s1=new StudentGrade();
+                s1.setNumber(num);
+                s1.delete(new UpdateListener() {
+                    @Override
+                    public void done(BmobException e) {
+                        if(e==null){
+                        }else{
+                            Toast.makeText(GradeImportActivity.this, "云端删除成功", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
                 Toast.makeText(this,"删除"+deleteLines+"条记录",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button_update:  //修改成绩

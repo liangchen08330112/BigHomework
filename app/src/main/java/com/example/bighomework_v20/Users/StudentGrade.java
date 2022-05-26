@@ -17,6 +17,9 @@ public class StudentGrade extends BmobObject {
         Grade=grade;
         Number=num;
     }
+    public StudentGrade(){
+
+    }
 
     public String getNumber() {
         return Number;
